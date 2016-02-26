@@ -57,6 +57,9 @@ imi_war_room
     -------------
     Linux:
     Füge das Modul unter dem Pfad hinzu:  /usr/share/icingaweb2/modules
+    Im Icingaweb2/public order füge einen symbolik link hinzu
+   
+    ln -s ../modules/public/sound sound
 
     Bekannte Probleme
     -----------------
