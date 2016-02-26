@@ -1,5 +1,6 @@
-Ici Icinga web 2 module imi_war_room
-    =================================
+Icinga web 2 module 
+imi_war_room
+=================================
 
     This module adds four tabs into Icinga web 2. Each tab has a different dashboard:
 
@@ -67,5 +68,5 @@ Ici Icinga web 2 module imi_war_room
     [Kontaktieren Sie uns](mailto:digital@iMi.de) gerne, wenn Sie Support für die Implementierung eines Moduls in ein bereits bestehendes Shop-System benötigen.In diesem Fall bieten wir einen kostenpflichtigen Full-Service-Support an.
 
 
-     @autor Natasza Szczypien, Mentors: Alexander Menk, Stephan Nachtsheim
+     @autor Natasza Szczypien, Mentors: Alexander Menk, Stephan Nachtsheim, Alexander von Hilchen
 
