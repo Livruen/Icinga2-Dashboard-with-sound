@@ -6,73 +6,61 @@
  * Date: 09.02.16
  * Time: 11:42
  */
-define('MAIN_PATH_IMI', 'imi');
 
-define('FIRST_TAB_NAME', 'imi');
-define('FIRST_TAB_PATH', 'imi');
-
-
-define('SECOND_TAB_NAME', 'DOWN_Servers');
-define('SECOND_TAB_PATH', MAIN_PATH_IMI.'/down');
-define('THIRD_TAB_NAME','WARNINGS');
-define('THIRD_TAB_PATH', MAIN_PATH_IMI.'/warnings');
-
-define('FOURTH_TAB_NAME','CRITICAL');
-define('FOURTH_TAB_PATH', MAIN_PATH_IMI.'/critical');
-
-define('FIFTH_TAB_NAME','CRITICAL_AND_WARNINGS');
-define('FIFTH_TAB_PATH', MAIN_PATH_IMI.'/caw');
 use Icinga\Web\Controller\ModuleActionController;
 
 
 class Imi_IndexController extends ModuleActionController
 {
+    const FIRST_TAB = 'imi';
+    const SECOND_TAB = '/down';
+    const THIRD_TAB = '/warnings';
+    const FOURTH_TAB = '/critical';
+    const FIFTH_TAB = '/caw';
 
     public function indexAction()
     {
-        $this->getTabs()->activate(FIRST_TAB_NAME);
+        $this->getTabs()->activate('Imi');
     }
 
     public function getTabs()
     {
         $tabs = parent::getTabs();
         $tabs->add(
-            FIRST_TAB_NAME,
+            'Imi',
             array(
-                'title' => FIRST_TAB_NAME,
-                'url'   => FIRST_TAB_PATH
-            )
-        );
-       $tabs->add(
-            SECOND_TAB_NAME,
-            array(
-                'title' =>  SECOND_TAB_NAME,
-                'url'   => SECOND_TAB_PATH
+                'title' => 'Imi',
+                'url'   => 'imi'
             )
         );
         $tabs->add(
-            THIRD_TAB_NAME,
+            self::SECOND_TAB,
             array(
-                'title' =>  THIRD_TAB_NAME,
-                'url'   => THIRD_TAB_PATH
+                'title' =>  self::FIRST_TAB.self::SECOND_TAB,
+                'url'   => self::FIRST_TAB.self::SECOND_TAB
             )
         );
         $tabs->add(
-            FOURTH_TAB_NAME,
+            self::THIRD_TAB,
             array(
-                'title' =>  FOURTH_TAB_NAME,
-                'url'   => FOURTH_TAB_PATH
+                'title' =>  self::FIRST_TAB.self::THIRD_TAB,
+                'url'   => self::FIRST_TAB.self::THIRD_TAB
             )
         );
         $tabs->add(
-            FIFTH_TAB_NAME,
+            self::FOURTH_TAB,
             array(
-                'title' =>  FIFTH_TAB_NAME,
-                'url'   => FIFTH_TAB_PATH
+                'title' =>  self::FIRST_TAB.self::FOURTH_TAB,
+                'url'   => self::FIRST_TAB.self::FOURTH_TAB
             )
         );
-
-
+        $tabs->add(
+            self::FIFTH_TAB,
+            array(
+                'title' =>  self::FIRST_TAB.self::FIFTH_TAB,
+                'url'   => self::FIRST_TAB.self::FIFTH_TAB
+            )
+        );
 
 
         return $tabs;

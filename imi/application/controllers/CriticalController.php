@@ -33,6 +33,12 @@ class Imi_CriticalController extends Icinga\Module\Monitoring\Controller
      */
     protected $serviceList;
 
+    const FIRST_TAB = 'imi';
+    const SECOND_TAB = '/down';
+    const THIRD_TAB = '/warnings';
+    const FOURTH_TAB = '/critical';
+    const FIFTH_TAB = '/caw';
+
     public function init()
     {
         $serviceList = new ServiceList($this->backend);
@@ -43,22 +49,11 @@ class Imi_CriticalController extends Icinga\Module\Monitoring\Controller
         $this->serviceList = $serviceList;
         $this->view->baseFilter = $this->serviceList->getFilter();
         $this->view->listAllLink = Url::fromRequest()->setPath('monitoring/list/services');
-        $this->getTabs()->add(
-            'show',
-            array(
-                'label' => $this->translate('Services') . sprintf(' (%d)', count($this->serviceList)),
-                'title' => sprintf(
-                    $this->translate('Show summarized information for %u services'),
-                    count($this->serviceList)
-                ),
-                'url'   => Url::fromRequest()
-            )
-        )->extend(new DashboardAction())->extend(new MenuAction())->activate('show');
     }
 
     public function indexAction()
     {
-
+        $this->getTabs()->activate(self::FOURTH_TAB);
         $this->setAutorefreshInterval(15);
         $checkNowForm = new CheckNowCommandForm();
         $checkNowForm
@@ -193,6 +188,48 @@ class Imi_CriticalController extends Icinga\Module\Monitoring\Controller
         }
         array_push($preparedArray, $currentGroup);
         return $preparedArray;
+    }
+    public function getTabs()
+    {
+        $tabs = parent::getTabs();
+        $tabs->add(
+            'Imi',
+            array(
+                'title' => 'Imi',
+                'url'   => 'imi'
+            )
+        );
+        $tabs->add(
+            self::SECOND_TAB,
+            array(
+                'title' =>  self::FIRST_TAB.self::SECOND_TAB,
+                'url'   => self::FIRST_TAB.self::SECOND_TAB
+            )
+        );
+        $tabs->add(
+            self::THIRD_TAB,
+            array(
+                'title' =>  self::FIRST_TAB.self::THIRD_TAB,
+                'url'   => self::FIRST_TAB.self::THIRD_TAB
+            )
+        );
+        $tabs->add(
+            self::FOURTH_TAB,
+            array(
+                'title' =>  self::FIRST_TAB.self::FOURTH_TAB,
+                'url'   => self::FIRST_TAB.self::FOURTH_TAB
+            )
+        );
+        $tabs->add(
+            self::FIFTH_TAB,
+            array(
+                'title' =>  self::FIRST_TAB.self::FIFTH_TAB,
+                'url'   => self::FIRST_TAB.self::FIFTH_TAB
+            )
+        );
+
+
+        return $tabs;
     }
 }
 
