@@ -1,5 +1,6 @@
-Ici Icinga web 2 module imi_war_room
-    =================================
+Icinga web 2 module 
+imi_war_room
+=================================
 
     This module adds four tabs into Icinga web 2. Each tab has a different dashboard:
 
