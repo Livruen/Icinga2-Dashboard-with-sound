@@ -1,0 +1,30 @@
+<!-- * Autor:  Natasza Szczypien, Alexander Menk, Stephan Nachtsheim
+     * Shows the current Host with the number of critical services and warnings
+     -->
+<?php
+
+if ($this->noWarnings === true) {
+    echo " No warnings ";
+} else {
+    foreach($this->objects as $service) {
+        ?>
+        <div class="caw-icon">
+            <header  id="caw-div-host-name">
+                <h2 ><?php echo $service['name']?></h2>
+            </header>
+
+            <section class="caw-div-service-name orange" >
+                <h2 class="caw-big-number"><?php echo $service['warnings']; ?></h2>
+                <h6 class="caw-small-number">WARNINGS</h6>
+            </section>
+            <section class="caw-div-service-name red" >
+                <h2 class="caw-big-number"><?php echo $service['criticals']; ?>
+                    <h6 class="caw-small-number">CRITICALS</h6>
+                </h2>
+            </section>
+        </div>
+    <?php } }?>
+
+
+
+
