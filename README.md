@@ -21,7 +21,7 @@ imi_war_room
     -------------
     Linux:
     Add the module into /usr/share/icingaweb2/modules
-    Go into Icingaweb2/public and make a symbolik link
+    Go into usr/share/icingaweb2/public and make a symbolik link
     
     ln -s ../modules/public/sound sound
 
@@ -57,7 +57,7 @@ imi_war_room
     -------------
     Linux:
     Füge das Modul unter dem Pfad hinzu:  /usr/share/icingaweb2/modules
-    Im Icingaweb2/public order füge einen symbolik link hinzu
+    Im usr/share/icingaweb2/public order füge einen symbolik link hinzu
    
     ln -s ../modules/public/sound sound
 
