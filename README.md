@@ -21,6 +21,9 @@ imi_war_room
     -------------
     Linux:
     Add the module into /usr/share/icingaweb2/modules
+    Go into Icingaweb2/public and make a symbolik link
+    
+    ln -s ../modules/public/sound sound
 
     About Us:
     =================
