@@ -16,6 +16,8 @@ imi_war_room
     until it is acknowledged.
 
     Tab 3: Critical and Warnings - lists blue boxes with the host name and the number of critical and warning services.
+    
+    *The sounds will annoy you as long as you don't acknowledge all problems
 
     Installation
     -------------
