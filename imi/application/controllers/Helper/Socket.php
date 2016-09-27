@@ -1,4 +1,6 @@
 
+<?php
+
 class Helper_Energenie
 {
 
